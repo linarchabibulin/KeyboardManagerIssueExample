@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KeyboardManagerIssueExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y4L-sa-dRl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SEU-Dp-bDq">
+                                <rect key="frame" x="50" y="70" width="275" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KVh-M9-Yyl"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="emI-RN-Oj3"/>
+                                </connections>
+                            </textField>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aSh-d1-9Sw">
+                                <rect key="frame" x="50" y="100" width="275" height="200"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="pkt-rA-2zJ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="A1U-NA-gjL"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Pw2-3t-Pgh"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S18-78-ckm">
+                                <rect key="frame" x="50" y="587" width="275" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aSh-d1-9Sw" firstAttribute="top" secondItem="SEU-Dp-bDq" secondAttribute="bottom" id="AnQ-1m-ytI"/>
+                            <constraint firstItem="S18-78-ckm" firstAttribute="trailing" secondItem="SEU-Dp-bDq" secondAttribute="trailing" id="GiA-Fa-fCu"/>
+                            <constraint firstItem="S18-78-ckm" firstAttribute="height" secondItem="SEU-Dp-bDq" secondAttribute="height" id="QSO-7H-odK"/>
+                            <constraint firstItem="SEU-Dp-bDq" firstAttribute="leading" secondItem="R7B-WV-eqr" secondAttribute="leading" constant="50" id="QfB-wj-AAN"/>
+                            <constraint firstItem="aSh-d1-9Sw" firstAttribute="trailing" secondItem="SEU-Dp-bDq" secondAttribute="trailing" id="c4f-JU-tHq"/>
+                            <constraint firstItem="S18-78-ckm" firstAttribute="leading" secondItem="SEU-Dp-bDq" secondAttribute="leading" id="mBQ-Nx-SSJ"/>
+                            <constraint firstItem="aSh-d1-9Sw" firstAttribute="leading" secondItem="SEU-Dp-bDq" secondAttribute="leading" id="nHc-Zi-ilU"/>
+                            <constraint firstItem="R7B-WV-eqr" firstAttribute="bottom" secondItem="S18-78-ckm" secondAttribute="bottom" constant="50" id="oD0-WP-D8X"/>
+                            <constraint firstItem="R7B-WV-eqr" firstAttribute="trailing" secondItem="SEU-Dp-bDq" secondAttribute="trailing" constant="50" id="vvd-nW-A20"/>
+                            <constraint firstItem="SEU-Dp-bDq" firstAttribute="top" secondItem="R7B-WV-eqr" secondAttribute="top" constant="50" id="ybB-fj-K8c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R7B-WV-eqr"/>
+                    </view>
+                    <connections>
+                        <outlet property="autocompletionTextfield" destination="SEU-Dp-bDq" id="ngG-ev-hBZ"/>
+                        <outlet property="tableView" destination="aSh-d1-9Sw" id="Gln-Vj-D6s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
