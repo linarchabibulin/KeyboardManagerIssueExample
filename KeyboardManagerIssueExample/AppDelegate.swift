@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().enableAutoToolbar = true
-        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         return true
     }
