@@ -12,8 +12,10 @@ import IQKeyboardManagerSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    var contentWindow: UIWindow?
+    var extraWindow: UIWindow?
+    private var shouldUseTwoWindows = true
+    private let extraWindowHeight: CGFloat = 150.0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -21,8 +23,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
+        setupWindows()
+        
         return true
     }
+    
+    private func setupWindows() {
+        
+        if shouldUseTwoWindows {
+            setupExtraWindow()
+        }
+        
+        var contentWindowFrame = UIScreen.main.bounds
+        
+        if shouldUseTwoWindows {
+            contentWindowFrame.size.height -= extraWindowHeight
+        }
+        
+        contentWindow = UIWindow(frame: contentWindowFrame)
+        let contentViewController = LoginViewController()
+        contentViewController.view.backgroundColor = .green
+        contentWindow?.rootViewController = UINavigationController(rootViewController: contentViewController)
+        contentWindow?.makeKeyAndVisible()
+    }
+    
+    private func setupExtraWindow() {
+        
+        var extraWindowFrame = UIScreen.main.bounds
+        extraWindowFrame.origin.y = extraWindowFrame.height - extraWindowHeight
+        extraWindowFrame.size.height = extraWindowHeight
+        let extraViewController = UIViewController()
+        extraViewController.view.backgroundColor = .red
+        extraWindow = UIWindow(frame: extraWindowFrame)
+        extraWindow?.rootViewController = extraViewController
+        extraWindow?.windowLevel = 1
+        extraWindow?.makeKeyAndVisible()
+    }
+    
+    // MARK: -
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
